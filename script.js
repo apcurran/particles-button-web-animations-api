@@ -18,9 +18,15 @@ function createParticle(x, y) {
     // Random blue/purple bg color
     const particleBgClr = `hsl(${Math.random() * 90 + 180}, 70%, 60%)`;
 
-    particle.style.width = `${particleSize}px`;
-    particle.style.height = `${particleSize}px`;
-    particle.style.backgroundColor = particleBgClr;
+    if (particle.attributeStyleMap) {
+        particle.attributeStyleMap.set("width", CSS.px(particleSize));
+        particle.attributeStyleMap.set("height", CSS.px(particleSize));
+        particle.attributeStyleMap.set("background-color", particleBgClr);
+    } else {
+        particle.style.width = `${particleSize}px`;
+        particle.style.height = `${particleSize}px`;
+        particle.style.backgroundColor = particleBgClr;
+    }
 
     // Random x & y destination within a distance of 75px from the mouse click
     const destX = x + (Math.random() - 0.5) * 2 * 75;
