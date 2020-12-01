@@ -46,5 +46,11 @@ function createParticle(x, y) {
         delay: Math.random() * 200
     });
 
-    animation.onfinish = () => particle.remove();
+    // Event handler option 1
+    // animation.onfinish = () => particle.remove();
+
+    // Promise option 2
+    animation
+        .finished
+        .then(() => particle.remove());
 }
