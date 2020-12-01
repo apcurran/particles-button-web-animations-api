@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Particles Button (WAAPI)</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .particle-btn {
+            padding: .75rem 1.25rem;
+            border: none;
+            background-color: #E5E7EB;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        particle {
+            position: fixed;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            pointer-events: none;
+            border-radius: 50%;
+        }
+    </style>
+    <script defer src="./script.js"></script>
+</head>
+<body>
+    <button class="particle-btn">Click Me</button>
+</body>
+</html>
