@@ -8,6 +8,10 @@ function spawnParticles(event) {
     }
 }
 
+function randomIntFromRange(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
 function createParticle(x, y) {
     const particle = document.createElement("particle");
 
@@ -16,7 +20,7 @@ function createParticle(x, y) {
     // Random size between 5px and 25px
     const particleSize = Math.floor(Math.random() * 20 + 5); 
     // Random blue/purple bg color
-    const particleBgClr = `hsl(${Math.random() * 90 + 180}, 70%, 60%)`;
+    const particleBgClr = `hsl(${randomIntFromRange(180, 270)}, 70%, 60%)`;
 
     if (particle.attributeStyleMap) {
         particle.attributeStyleMap.set("width", CSS.px(particleSize));
@@ -45,11 +49,10 @@ function createParticle(x, y) {
             opacity: 0
         }
     ], {
-        // Set a random duration from 500ms to 1500ms
-        duration: 500 + Math.random() * 1000,
+        // Set a random duration and delay from range in ms
+        duration: randomIntFromRange(500, 1500),
         easing: "cubic-bezier(0, .9, .57, 1)",
-        // Delay every particle with a random val from 0ms to 200ms
-        delay: Math.random() * 200
+        delay: randomIntFromRange(0, 200)
     });
 
     // Event handler option 1
